@@ -1,0 +1,27 @@
+/* src/index.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 20vh;
+  color: #A91D3A;
+  font-weight:  bold;
+  font-size: 15vh;
+}
+h3 {
+  color: #C73659;
+  font-weight: lighter;
+  font-size: 5vh;
+}
+
+p {
+  color: #666;
+}

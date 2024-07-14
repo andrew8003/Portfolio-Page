@@ -1,0 +1,71 @@
+$total-arrows: 3;
+$arrow-line-length: 10vh;
+$arrow-line-width: 1vh;
+$arrow-spacing: 5vh; // Adjust this value as needed
+
+// base
+html {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  position: relative;
+  height: 100%;
+}
+
+// arrows
+.arrow-container {
+  display: block;
+  width: 20vh;
+  height: 20vh;  
+  margin-top: 30vh;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  transition: all 0.8s ease;
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    transform-origin: bottom right;
+    background: #a7a7a7ee;
+    width: $arrow-line-width;
+    height: $arrow-line-length;
+    border-radius: 10px;
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+  }
+  &:after {
+    transform-origin: bottom left;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+  }
+  @for $i from 1 through $total-arrows {
+    &:nth-child(#{$i}) {
+      top: #{($i - 1) * $arrow-spacing}; // Initial positions
+      opacity: #{0.5 + (0.5 * $i)}; // Set different opacity for each arrow
+      z-index: $i; // Ensure arrows are stacked in the correct order
+    }
+  }
+}
+
+@keyframes combineArrows {
+  to {
+    top: #{($total-arrows - 1) * $arrow-spacing}; // Final position for all arrows
+  }
+}
+
+.arrow-container:hover .arrow {
+  @for $i from 1 through $total-arrows {
+    &:nth-child(#{$i}) {
+      animation: combineArrows 0.8s ease forwards;
+      animation-delay: #{($i - 1) * 0.15s};
+    }
+  }
+}
