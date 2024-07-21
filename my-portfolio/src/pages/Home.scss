@@ -1,71 +1,435 @@
+// Variables
 $total-arrows: 3;
-$arrow-line-length: 10vh;
-$arrow-line-width: 1vh;
-$arrow-spacing: 5vh; // Adjust this value as needed
+$arrow-line-length: 15vh;
+$arrow-line-width: 2vh;
+$glow-color: #ffffff88;
+$background-color: #FA7070;
+$text-color: #FEFDED;
+$link-color: #FA7070;
 
-// base
-html {
+// Mixins
+@mixin arrow-transitions($rot: 0deg) {
+  transform: translate(-50%, -50%) rotateZ($rot);
+}
+
+// Base Styles
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #000;
-  position: relative;
-  height: 100%;
+  background: $background-color;
+  font-family: Arial, sans-serif;
 }
 
-// arrows
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // Ensure full viewport height
+  padding: 0 1rem;
+}
+
+// Typography
+h1 {
+  margin-top: 15vh;
+  color: $text-color;
+  font-weight: bold;
+  font-size: 10vh; // Adjusted for better responsiveness
+}
+
+h2 {
+  margin-top: 10vh;
+  color: #FEFDED;
+  font-weight: lighter;
+  font-size: 5vh; // Adjusted for better responsiveness
+}
+
+h3 {
+  color: #FA7070;
+  font-weight: lighter;
+  font-size: 4vh; // Adjusted for better responsiveness
+}
+
+p {
+  color: $text-color;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: $link-color;
+  font-size: 4vh;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vh 0;
+}
+
+.social-logo {
+  position: relative;
+  width: 12vh; // Adjusted size
+  height: 12vh; // Adjusted size
+  margin-bottom: 1vh;
+  transition: transform 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 105%;
+    height: 105%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    &::before {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.social-logo-text {
+  font-size: 2vh; // Adjusted size
+  font-weight: bold;
+  color: black;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+
+  &:hover {
+    color: #2c8d27;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Arrow Styles
 .arrow-container {
+  margin-top: 20vh;
   display: block;
-  width: 20vh;
-  height: 20vh;  
-  margin-top: 30vh;
+  width: 30vh;
+  height: 30vh;
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  @include arrow-transitions(0deg);
+
+  &:hover {
+    cursor: pointer;
+    .arrow {
+      top: 50%;
+
+      &:before {
+        @include arrow-transitions(-30deg);
+      }
+
+      &:after {
+        @include arrow-transitions(30deg);
+      }
+    }
+  }
 }
 
 .arrow {
   position: absolute;
   left: 50%;
   transition: all 0.8s ease;
+
   &:before,
   &:after {
+    transition: all 0.8s ease;
     content: '';
     display: block;
     position: absolute;
     transform-origin: bottom right;
-    background: #a7a7a7ee;
+    background: #fff;
     width: $arrow-line-width;
     height: $arrow-line-length;
     border-radius: 10px;
     transform: translate(-50%, -50%) rotateZ(-45deg);
+    box-shadow: 0 0 10px $glow-color, 0 0 20px $glow-color;
   }
+
   &:after {
     transform-origin: bottom left;
     transform: translate(-50%, -50%) rotateZ(45deg);
   }
+
   @for $i from 1 through $total-arrows {
     &:nth-child(#{$i}) {
-      top: #{($i - 1) * $arrow-spacing}; // Initial positions
-      opacity: #{0.5 + (0.5 * $i)}; // Set different opacity for each arrow
-      z-index: $i; // Ensure arrows are stacked in the correct order
+      opacity: 0.3 * $i;
+      top: 15 + (100% * $i / 5);
     }
   }
 }
 
-@keyframes combineArrows {
+// Center the social links container
+.social-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh; // Adjusted spacing
+  margin-top: 5vh;
+}
+
+.projects-header, .contact-header {
+  color: black;
+}
+
+.colour-div {
+  background-color: #FEFDED;
+  width: 100%;
+  padding: 2vh;
+  box-sizing: border-box;
+}
+
+// Contact Link Styles
+.contact-link {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+// Responsive Styles
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 8vh;
+  }
+
+  h2 {
+    font-size: 4vh;
+  }
+
+  h3 {
+    font-size: 3vh;
+  }
+
+  .social-logo {
+    width: 12vh;
+    height: 12vh;
+  }
+
+  .social-logo-text {
+    font-size: 1.8vh;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 7vh;
+  }
+
+  h2 {
+    font-size: 3.5vh;
+  }
+
+  h3 {
+    font-size: 3vh;
+  }
+
+  .social-logo {
+    width: 10vh;
+    height: 10vh;
+  }
+
+  .social-logo-text {
+    font-size: 1.8vh;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 6vh;
+  }
+
+  h2 {
+    font-size: 3vh;
+  }
+
+  h3 {
+    font-size: 2.5vh;
+  }
+
+  .social-logo {
+    width: 8vh;
+    height: 8vh;
+  }
+
+  .social-logo-text {
+    font-size: 1.5vh;
+  }
+}
+
+// Custom scrollbar styles
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+/* Scrollbar for the entire HTML page */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+// Burger Menu Styles
+.burger-menu {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1000;
+}
+
+.burger-bar {
+  width: 30px;
+  height: 3px;
+  background-color: #000000;
+  transition: background-color 0.3s ease;
+}
+
+.burger-menu:hover .burger-bar {
+  background-color: #696969;
+}
+
+// Navigation Menu Styles
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 250px;
+  background-color: #FEFDED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.nav-menu.open {
+  transform: translateX(0);
+}
+
+.nav-menu a {
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: #FA7070;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #999999;
+}
+
+// Optional: Add some fade-in animation
+.nav-menu {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
   to {
-    top: #{($total-arrows - 1) * $arrow-spacing}; // Final position for all arrows
+    opacity: 1;
   }
 }
 
-.arrow-container:hover .arrow {
-  @for $i from 1 through $total-arrows {
-    &:nth-child(#{$i}) {
-      animation: combineArrows 0.8s ease forwards;
-      animation-delay: #{($i - 1) * 0.15s};
-    }
+// Languages Section
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0 1rem; // Ensure padding is responsive
+}
+
+.language-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vh; // Adjusted for smaller screens
+  padding: 1rem;
+  border: 2px solid #FA7070;
+  border-radius: 8px;
+  background-color: #FEFDED;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+}
+
+.language-logo {
+  width: 12vh; // Adjusted size for smaller screens
+  height: 12vh; // Adjusted size for smaller screens
+  object-fit: contain;
+}
+
+.language-name {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #000;
 }
