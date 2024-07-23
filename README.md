@@ -8,8 +8,8 @@ This project is a portfolio page built using React. It dynamically integrates wi
 - **Smooth Scrolling Navigation**: Includes a burger menu with smooth scrolling to specific sections on the webpage.
 
 ## Dependencies 
--**npm install react react-dom
--**npm install axios
--**npm install react-helmet
--**npm install sass
--**npm install react-markdown
+- **npm install react react-dom
+- **npm install axios
+- **npm install react-helmet
+- **npm install sass
+- **npm install react-markdown
