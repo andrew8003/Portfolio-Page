@@ -1,20 +1,17 @@
-// Container for all project cards
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem; // Adjusted for better spacing on smaller screens
+  padding: 2rem;
 }
 
-// Individual project card styling
 .project-card {
   position: relative;
-  background: #909090;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 100%; // Full width on smaller screens
-  max-width: 300px; // Limit width for larger screens
+  background: #e6e6e6;
+  padding: 3rem;
+  border-radius: 15px;
+  width: 25vw;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
@@ -47,7 +44,7 @@
   h3 {
     color: black;
     margin-bottom: 0.5rem;
-    font-size: 4vh; // Adjusted for responsiveness
+    font-size: 150%;
   }
 
   a {
@@ -55,16 +52,50 @@
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
-    font-size: 3vh; // Adjusted for responsiveness
+    font-size: 150%;
 
     &:hover {
       color: #2c8d27;
     }
   }
 
-  .markdown {
-    text-align: left;
-    color: #b1aff9;
+  .repo-description {
+    color: #191919;
+    margin-top: 1rem;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #191919;
+    }
+
+    p {
+      color: #191919;
+    }
+
+    a {
+      color: #3dc736;
+      text-decoration: underline;
+
+      &:hover {
+        color: #2c8d27;
+      }
+    }
+
+    code {
+      color: #ff5733;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+    blockquote {
+      border-left: 2px solid #ddd;
+      padding-left: 1rem;
+      color: #666;
+    }
   }
 
   .project-languages {
@@ -85,7 +116,7 @@
     }
 
     .language-name {
-      font-size: 2.5vh; // Adjusted for responsiveness
+      font-size: 2.5vh;
       margin-bottom: 0.25rem;
       color: #000000;
       text-align: left;
@@ -95,7 +126,7 @@
       position: relative;
       background: #e1e4e8;
       border-radius: 5px;
-      height: 1.5rem; // Adjusted for better alignment
+      height: 1.5rem;
       display: flex;
       align-items: center;
       padding: 0 1rem;
@@ -111,22 +142,10 @@
         border-radius: 5px;
         z-index: 1;
       }
-
-      .language-percentage {
-        position: absolute;
-        right: 0.5rem;
-        color: #515151;
-        font-size: 2vh; // Adjusted for responsiveness
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        z-index: 2;
-      }
     }
   }
 }
 
-// Responsive Styles
 @media (max-width: 768px) {
   .project-card {
     width: 90%;
@@ -145,8 +164,8 @@
     font-size: 2vh;
   }
 
-  .language-percentage {
-    font-size: 1.8vh;
+  .repo-description {
+    font-size: 2vh;
   }
 }
 
@@ -168,7 +187,7 @@
     font-size: 1.8vh;
   }
 
-  .language-percentage {
-    font-size: 1.5vh;
+  .repo-description {
+    font-size: 1.8vh;
   }
 }

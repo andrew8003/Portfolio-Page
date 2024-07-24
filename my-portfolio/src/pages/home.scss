@@ -35,7 +35,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; // Ensure full viewport height
+  min-height: 100vh;
   padding: 0 1rem;
 }
 
@@ -44,20 +44,21 @@ h1 {
   margin-top: 15vh;
   color: $text-color;
   font-weight: bold;
-  font-size: 10vh; // Adjusted for better responsiveness
+  font-size: 10vh;
 }
 
 h2 {
   margin-top: 10vh;
-  color: #FEFDED;
+  color: $text-color;
   font-weight: lighter;
-  font-size: 5vh; // Adjusted for better responsiveness
+  font-size: 5vh;
 }
 
 h3 {
-  color: #FA7070;
-  font-weight: lighter;
-  font-size: 4vh; // Adjusted for better responsiveness
+  color: $link-color;
+  font-weight: bold;
+  font-size: 4vh;
+  margin: 1rem 0;
 }
 
 p {
@@ -82,8 +83,8 @@ a {
 
 .social-logo {
   position: relative;
-  width: 12vh; // Adjusted size
-  height: 12vh; // Adjusted size
+  width: 15vw;
+  height: 15vw;
   margin-bottom: 1vh;
   transition: transform 0.3s ease;
 
@@ -114,7 +115,7 @@ a {
 }
 
 .social-logo-text {
-  font-size: 2vh; // Adjusted size
+  font-size: 2vh;
   font-weight: bold;
   color: black;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -159,7 +160,6 @@ a {
 
   &:before,
   &:after {
-    transition: all 0.8s ease;
     content: '';
     display: block;
     position: absolute;
@@ -190,7 +190,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5vh; // Adjusted spacing
+  gap: 5vh;
   margin-top: 5vh;
 }
 
@@ -199,8 +199,9 @@ a {
 }
 
 .colour-div {
-  background-color: #FEFDED;
-  width: 100%;
+  border-radius: 50px;
+  background-color: $text-color;
+  width: 85vw;
   padding: 2vh;
   box-sizing: border-box;
 }
@@ -218,72 +219,27 @@ a {
 
 // Responsive Styles
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 8vh;
-  }
-
-  h2 {
-    font-size: 4vh;
-  }
-
-  h3 {
-    font-size: 3vh;
-  }
-
-  .social-logo {
-    width: 12vh;
-    height: 12vh;
-  }
-
-  .social-logo-text {
-    font-size: 1.8vh;
-  }
+  h1 { font-size: 8vh; }
+  h2 { font-size: 4vh; }
+  h3 { font-size: 3vh; }
+  .social-logo { width: 12vh; height: 12vh; }
+  .social-logo-text { font-size: 1.8vh; }
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 7vh;
-  }
-
-  h2 {
-    font-size: 3.5vh;
-  }
-
-  h3 {
-    font-size: 3vh;
-  }
-
-  .social-logo {
-    width: 10vh;
-    height: 10vh;
-  }
-
-  .social-logo-text {
-    font-size: 1.8vh;
-  }
+  h1 { font-size: 7vh; }
+  h2 { font-size: 3.5vh; }
+  h3 { font-size: 3vh; }
+  .social-logo { width: 10vh; height: 10vh; }
+  .social-logo-text { font-size: 1.8vh; }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 6vh;
-  }
-
-  h2 {
-    font-size: 3vh;
-  }
-
-  h3 {
-    font-size: 2.5vh;
-  }
-
-  .social-logo {
-    width: 8vh;
-    height: 8vh;
-  }
-
-  .social-logo-text {
-    font-size: 1.5vh;
-  }
+  h1 { font-size: 6vh; }
+  h2 { font-size: 3vh; }
+  h3 { font-size: 2.5vh; }
+  .social-logo { width: 8vh; height: 8vh; }
+  .social-logo-text { font-size: 1.5vh; }
 }
 
 // Custom scrollbar styles
@@ -299,20 +255,17 @@ a {
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
-  border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-/* Firefox scrollbar styling */
 * {
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
 }
 
-/* Scrollbar for the entire HTML page */
 html {
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
@@ -338,7 +291,7 @@ body {
 .burger-bar {
   width: 30px;
   height: 3px;
-  background-color: #000000;
+  background-color: #000;
   transition: background-color 0.3s ease;
 }
 
@@ -354,7 +307,7 @@ body {
   height: 100%;
   width: 100%;
   max-width: 250px;
-  background-color: #FEFDED;
+  background-color: $text-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -372,27 +325,22 @@ body {
 .nav-menu a {
   margin: 1rem 0;
   font-size: 2rem;
-  color: #FA7070;
+  color: $link-color;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-  color: #999999;
+  color: #999;
 }
 
-// Optional: Add some fade-in animation
 .nav-menu {
   animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 // Languages Section
@@ -401,20 +349,24 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding: 0 1rem; // Ensure padding is responsive
+  padding: 0 1rem;
 }
 
 .language-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15vh; // Adjusted for smaller screens
+  width: 25vw;
+  height: 27vw;
+  max-width: 200px;
+  max-height: 200px;
   padding: 1rem;
-  border: 2px solid #FA7070;
+  border: 2px solid $link-color;
   border-radius: 8px;
-  background-color: #FEFDED;
+  background-color: $text-color;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.05);
@@ -423,13 +375,39 @@ body {
 }
 
 .language-logo {
-  width: 12vh; // Adjusted size for smaller screens
-  height: 12vh; // Adjusted size for smaller screens
+  width: 90%;
+  height: auto;
   object-fit: contain;
+  max-width: 100%;
 }
 
-.language-name {
-  margin-top: 0.5rem;
+.tooltip {
   font-size: 1rem;
   color: #000;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aboutme-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h3-wrapper {
+  width: 80%;
+  background: $text-color;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  margin: 1rem 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.19);
+  }
 }
