@@ -87,7 +87,7 @@ function Home() {
                             <h3>Hi, I'm Andrew, a recently graduated Software Engineer with an interest in learning cutting-edge technologies to solve complex problems and create fun projects.</h3>
                         </div>
                         <div className="h3-wrapper">
-                            <h3>Below you can find the languages I'm familiar with, links to my GitHub and LinkedIn, and my GitHub repositories.</h3>
+                            <h3>Below you can find the languages I'm familiar with, links to my GitHub and LinkedIn, and my projects on Github.</h3>
                         </div>
                     </div>
                 </section>

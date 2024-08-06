@@ -141,25 +141,22 @@ a {
     cursor: pointer;
     .arrow {
       top: 50%;
-
       &:before {
         @include arrow-transitions(-30deg);
       }
-
       &:after {
         @include arrow-transitions(30deg);
-      }
+      }      
     }
   }
 }
-
 .arrow {
   position: absolute;
   left: 50%;
-  transition: all 0.8s ease;
-
+  transition: all .4s ease;
   &:before,
   &:after {
+    transition: all .4s ease;
     content: '';
     display: block;
     position: absolute;
@@ -169,18 +166,15 @@ a {
     height: $arrow-line-length;
     border-radius: 10px;
     transform: translate(-50%, -50%) rotateZ(-45deg);
-    box-shadow: 0 0 10px $glow-color, 0 0 20px $glow-color;
   }
-
   &:after {
     transform-origin: bottom left;
     transform: translate(-50%, -50%) rotateZ(45deg);
   }
-
   @for $i from 1 through $total-arrows {
     &:nth-child(#{$i}) {
       opacity: 0.3 * $i;
-      top: 15 + (100% * $i / 5);
+      top: 15 + (100% * $i/5);
     }
   }
 }
@@ -358,13 +352,13 @@ body {
   align-items: center;
   width: 25vw;
   height: 27vw;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   padding: 1rem;
-  border: 2px solid $link-color;
+  border: 3px solid $link-color;
   border-radius: 8px;
   background-color: $text-color;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 
@@ -401,13 +395,13 @@ body {
   background: $text-color;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
   margin: 1rem 0;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.19);
+    box-shadow: 0 6px 52px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.19);
   }
 }
