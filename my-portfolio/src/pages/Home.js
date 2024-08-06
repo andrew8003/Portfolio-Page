@@ -81,7 +81,7 @@ function Home() {
             </div>
             <div className="colour-div">
                 <section id="aboutme">
-                    <h1 className="projects-header">About Me</h1>
+                    <h1 className="projects-header">ABOUT ME</h1>
                     <div className="aboutme-box">
                         <div className="h3-wrapper">
                             <h3>Hi, I'm Andrew, a recently graduated Software Engineer with an interest in learning cutting-edge technologies to solve complex problems and create fun projects.</h3>
@@ -102,7 +102,7 @@ function Home() {
                 </section>
 
                 <section id="languages">
-                    <h1 className="projects-header">Languages</h1>
+                    <h1 className="projects-header">LANGUAGES</h1>
                     <div className="languages-container">
                         {languages.map((lang) => (
                             <div key={lang.name} className="language-box">
@@ -128,7 +128,7 @@ function Home() {
                 </section>
 
                 <section id="contact">
-                    <h1 className="contact-header">Contact Me</h1>
+                    <h1 className="contact-header">CONTACT ME</h1>
                     <h3>The best way to contact me is through{' '}
                         <a href="https://linkedin.com/in/andrew8003" target="_blank" rel="noopener noreferrer" className="contact-link">LinkedIn</a>
                     </h3>
