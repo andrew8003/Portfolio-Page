@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.07084749.css",
+    "main.js": "/static/js/main.7e24f9b8.js",
+    "static/js/453.ececc0a5.chunk.js": "/static/js/453.ececc0a5.chunk.js",
+    "static/media/reactlogo.png": "/static/media/reactlogo.0cac64854bf2b699e77c.png",
+    "static/media/phplogo.png": "/static/media/phplogo.bb6e5588262b89ce5573.png",
+    "static/media/sqllogo.png": "/static/media/sqllogo.a7a2ac1182a4a7d7a95a.png",
+    "static/media/rlogo.png": "/static/media/rlogo.fa699121e184261c124b.png",
+    "static/media/htmllogo.png": "/static/media/htmllogo.cbd6ca45ddf0fd82421a.png",
+    "static/media/javalogo.png": "/static/media/javalogo.8af9527bf1a929a66ac4.png",
+    "static/media/csslogo.png": "/static/media/csslogo.ff1b4140eecb62d2e4d1.png",
+    "static/media/pythonlogo.png": "/static/media/pythonlogo.286134fbc515b5e73f4d.png",
+    "static/media/Tux.svg": "/static/media/Tux.cc9a8e9221fef2b05c6c88364e219728.svg",
+    "static/media/javascriptlogo.png": "/static/media/javascriptlogo.11e48bd3560e899f6332.png",
+    "static/media/bash.svg": "/static/media/bash.31469aae70b8e95103fe760027703efa.svg",
+    "index.html": "/index.html",
+    "main.07084749.css.map": "/static/css/main.07084749.css.map",
+    "main.7e24f9b8.js.map": "/static/js/main.7e24f9b8.js.map",
+    "453.ececc0a5.chunk.js.map": "/static/js/453.ececc0a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07084749.css",
+    "static/js/main.7e24f9b8.js"
+  ]
+}
